@@ -1,0 +1,39 @@
+/*
+  Localizable.strings
+  Cakebrew
+
+  Created by Bruno Philipe on 5/7/14.
+  Copyright (c) 2014 Bruno Philipe. All rights reserved.
+*/
+
+"GENERIC-OK" = "OK";
+"GENERIC-ERROR" = "Error!";
+"GENERIC-CANCEL" = "Cancel";
+
+"FORMULA-DEPRECATED" = "Formula no longer available.";
+"FORMULA-NOT-INSTALLED" = "Formula Not Installed.";
+"FORMULA-NO-DEPENDENCIES" = "This formula has no dependencies!";
+"FORMULA-NO-CONFLICTS" = "This formula has no known conflicts.";
+
+"FORMULA-INSTALL" = "Install Formula";
+"FORMULA-UNINSTALL" = "Uninstall Formula";
+"FORMULA-UPDATE" = "Update Formula";
+
+"FORMULA-CATEGORY-INSTALLED" = "Installed";
+"FORMULA-CATEGORY-OUTDATED" = "Outdated";
+"FORMULA-CATEGORY-ALL" = "All Formulae";
+"FORMULA-CATEGORY-LEAVES" = "Leaves";
+
+"SIDEBAR-GROUP-FORMULAE" = "Formulae";
+"SIDEBAR-GROUP-TOOLS" = "Tools";
+
+"TOOL-DOCTOR" = "Doctor";
+"TOOL-UPDATE" = "Update";
+
+"WARNING-BACKGROUND-TASK-TITLE" = "Active background task!";
+"WARNING-BACKGROUND-TASK-MESSAGE" = "Sorry, a background task is already running. You can't perform two tasks at the same time.";
+"WARNING-VALID-SHELL-TITLE" = "No Valid shell was found!";
+"WARNING-VALID-SHELL-MESSGAE" = "Please add your shell \"%@\" to the valid shells file at \"/etc/shells\" before trying again.";
+"WARNING-HOMEBREW-NOT-INSTALLED" = "Homebrew was not found in your system. Please install Homebrew before using Cakebrew. You can click the button below to open Homebrew's website.";
+
+"UI-HOMEBREW-WEBSITE" = "Homebrew Website";

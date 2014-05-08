@@ -47,6 +47,7 @@
 		15D5BEF318EBB3FB001DDED7 /* plus.icns in Resources */ = {isa = PBXBuildFile; fileRef = 15D5BEF018EBB3FB001DDED7 /* plus.icns */; };
 		15D5BEF518EBB430001DDED7 /* search.icns in Resources */ = {isa = PBXBuildFile; fileRef = 15D5BEF418EBB430001DDED7 /* search.icns */; };
 		15D5BEFA18EBC56E001DDED7 /* DMSplitView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15D5BEF918EBC56E001DDED7 /* DMSplitView.m */; };
+		15F0EA2A191B1CA200BA8875 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 15F0EA29191B1CA200BA8875 /* Localizable.strings */; };
 		1FE4FE59148E4CDD008EDE8B /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FE4FE58148E4CDD008EDE8B /* Cocoa.framework */; };
 		1FE4FE63148E4CDD008EDE8B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1FE4FE61148E4CDD008EDE8B /* InfoPlist.strings */; };
 		1FE4FE65148E4CDD008EDE8B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE4FE64148E4CDD008EDE8B /* main.m */; };
@@ -123,6 +124,7 @@
 		15D5BEF418EBB430001DDED7 /* search.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = search.icns; sourceTree = "<group>"; };
 		15D5BEF818EBC56E001DDED7 /* DMSplitView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMSplitView.h; sourceTree = "<group>"; };
 		15D5BEF918EBC56E001DDED7 /* DMSplitView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMSplitView.m; sourceTree = "<group>"; };
+		15F0EA29191B1CA200BA8875 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		1FE4FE54148E4CDD008EDE8B /* Cakebrew.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cakebrew.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FE4FE58148E4CDD008EDE8B /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		1FE4FE5B148E4CDD008EDE8B /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -329,6 +331,7 @@
 				1FE4FE64148E4CDD008EDE8B /* main.m */,
 				1FE4FE66148E4CDD008EDE8B /* Cakebrew-Prefix.pch */,
 				1FE4FE67148E4CDD008EDE8B /* Credits.rtf */,
+				15F0EA29191B1CA200BA8875 /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -421,6 +424,7 @@
 				15D2CF9818F1D66400B6D9F1 /* installedTemplate@2x.png in Resources */,
 				15B23A2C18F5003600714212 /* dsa_pub.pem in Resources */,
 				15D2CFBA18F20A8200B6D9F1 /* LICENSE in Resources */,
+				15F0EA2A191B1CA200BA8875 /* Localizable.strings in Resources */,
 				15D2CF9918F1D66400B6D9F1 /* outdatedTemplate.png in Resources */,
 				15D2CF9318F1D66400B6D9F1 /* allFormulasTemplate.png in Resources */,
 				15D5BEF218EBB3FB001DDED7 /* label.icns in Resources */,

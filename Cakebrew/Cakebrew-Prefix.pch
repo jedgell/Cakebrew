@@ -38,4 +38,6 @@
 	#define kBP_NOTIFICATION_SEARCH_UPDATED @"BP_NOTIFICATION_SEARCH_UPDATED"
 
 	#define kBP_CAKEBREW_URL [NSURL URLWithString:@"http://www.cakebrew.com/"]
+
+	#define NSQLocalizedString(message) (NSLocalizedString(message, nil))
 #endif

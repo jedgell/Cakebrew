@@ -119,7 +119,10 @@
 {
 	static NSAlert *alert= nil;
 	if (!alert)
-		alert = [NSAlert alertWithMessageText:@"Active background task!" defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@"Sorry, a background task is already running. You can't perform two tasks at the same time."];
+		alert = [NSAlert alertWithMessageText:NSQLocalizedString(@"WARNING-BACKGROUND-TASK-TITLE")
+								defaultButton:NSQLocalizedString(@"GENERIC-OK")
+							  alternateButton:nil otherButton:nil
+					informativeTextWithFormat:@"%@", NSQLocalizedString(@"WARNING-BACKGROUND-TASK-MESSAGE")];
 
 	[alert runModal];
 }

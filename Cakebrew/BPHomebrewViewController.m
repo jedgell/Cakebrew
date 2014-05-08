@@ -72,8 +72,8 @@
 
 - (void)displayInformationForFormula:(BPFormula*)formula
 {
-	static NSString *depString = @"Formula no longer available.";
 	static NSString *emptyString = @"--";
+	NSString *depString = NSQLocalizedString(@"FORMULA-DEPRECATED");
 
 	[self setCurrentFormula:formula];
 
@@ -82,7 +82,7 @@
 			if (formula.isInstalled) {
 				[self.label_formulaPath setStringValue:formula.installPath];
 			} else {
-				[self.label_formulaPath setStringValue:@"Formula Not Installed."];
+				[self.label_formulaPath setStringValue:NSQLocalizedString(@"FORMULA-NOT-INSTALLED")];
 			}
 
 			[self.label_formulaVersion setStringValue:formula.latestVersion];
@@ -90,13 +90,13 @@
 			if (formula.dependencies) {
 				[self.label_formulaDependencies setStringValue:formula.dependencies];
 			} else {
-				[self.label_formulaDependencies setStringValue:@"This formula has no dependencies!"];
+				[self.label_formulaDependencies setStringValue:NSQLocalizedString(@"FORMULA-NO-DEPENDENCIES")];
 			}
 
 			if (formula.conflicts) {
 				[self.label_formulaConflicts setStringValue:formula.conflicts];
 			} else {
-				[self.label_formulaConflicts setStringValue:@"This formula has no known conflicts."];
+				[self.label_formulaConflicts setStringValue:NSQLocalizedString(@"FORMULA-NO-CONFLICTS")];
 			}
 		} else {
 			[self.label_formulaPath setStringValue:depString];
@@ -142,7 +142,7 @@
 		}
 	}];
 
-	NSAlert *alert = [NSAlert alertWithMessageText:@"Error!" defaultButton:@"Homebrew Website" alternateButton:@"OK" otherButton:nil informativeTextWithFormat:@"Homebrew was not found in your system. Please install Homebrew before using Cakebrew. You can click the button below to open Homebrew's website."];
+	NSAlert *alert = [NSAlert alertWithMessageText:NSQLocalizedString(@"GENERIC-ERROR") defaultButton:NSQLocalizedString(@"UI-HOMEBREW-WEBSITE") alternateButton:NSQLocalizedString(@"GENERIC-OK") otherButton:nil informativeTextWithFormat:NSLocalizedString(@"WARNING-HOMEBREW-NOT-INSTALLED", nil)];
 	[alert.window setTitle:@"Cakebrew"];
 	[alert beginSheetModalForWindow:_appDelegate.window completionHandler:^(NSModalResponse returnCode) {
 		if (returnCode == NSAlertDefaultReturn) {
@@ -184,25 +184,25 @@
 		switch ([[BPHomebrewManager sharedManager] statusForFormula:formula]) {
 			case kBPFormulaInstalled:
 				[self.toolbarButton_installUninstall setImage:[NSImage imageNamed:@"delete.icns"]];
-				[self.toolbarButton_installUninstall setLabel:@"Uninstall Formula"];
+				[self.toolbarButton_installUninstall setLabel:NSQLocalizedString(@"FORMULA-UNINSTALL")];
 				[self setToolbarButtonOperation:kBPWindowOperationUninstall];
 				break;
 
 			case kBPFormulaOutdated:
 				if ([self.outlineView_sidebar selectedRow] == 2) {
 					[self.toolbarButton_installUninstall setImage:[NSImage imageNamed:@"reload.icns"]];
-					[self.toolbarButton_installUninstall setLabel:@"Update Formula"];
+					[self.toolbarButton_installUninstall setLabel:NSQLocalizedString(@"FORMULA-UPDATE")];
 					[self setToolbarButtonOperation:kBPWindowOperationUpgrade];
 				} else {
 					[self.toolbarButton_installUninstall setImage:[NSImage imageNamed:@"delete.icns"]];
-					[self.toolbarButton_installUninstall setLabel:@"Uninstall Formula"];
+					[self.toolbarButton_installUninstall setLabel:NSQLocalizedString(@"FORMULA-UNINSTALL")];
 					[self setToolbarButtonOperation:kBPWindowOperationUninstall];
 				}
 				break;
 
 			case kBPFormulaNotInstalled:
 				[self.toolbarButton_installUninstall setImage:[NSImage imageNamed:@"download.icns"]];
-				[self.toolbarButton_installUninstall setLabel:@"Install Formula"];
+				[self.toolbarButton_installUninstall setLabel:NSQLocalizedString(@"FORMULA-INSTALL")];
 				[self setToolbarButtonOperation:kBPWindowOperationInstall];
 				break;
 		}
@@ -223,8 +223,11 @@
 
 - (void)buildSidebarTree
 {
-	NSArray *categoriesTitles = @[@"Installed", @"Outdated", @"All Formulae", @"Leaves"];
 	NSArray *categoriesIcons = @[@"installedTemplate", @"outdatedTemplate", @"allFormulaeTemplate", @"pinTemplate"];
+	NSArray *categoriesTitles = @[NSQLocalizedString(@"FORMULA-CATEGORY-INSTALLED"),
+								  NSQLocalizedString(@"FORMULA-CATEGORY-OUTDATED"),
+								  NSQLocalizedString(@"FORMULA-CATEGORY-ALL"),
+								  NSQLocalizedString(@"FORMULA-CATEGORY-LEAVES")];
 	NSArray *categoriesValues = @[[NSNumber numberWithInteger:[[[BPHomebrewManager sharedManager] formulae_installed] count]],
 								  [NSNumber numberWithInteger:[[[BPHomebrewManager sharedManager] formulae_outdated] count]],
 								  [NSNumber numberWithInteger:[[[BPHomebrewManager sharedManager] formulae_all] count]],
@@ -233,7 +236,7 @@
 	PXSourceListItem *item, *parent;
 	_rootSidebarCategory = [PXSourceListItem itemWithTitle:@"" identifier:@"root"];
 
-	parent = [PXSourceListItem itemWithTitle:@"Formulae" identifier:@"group"];
+	parent = [PXSourceListItem itemWithTitle:NSQLocalizedString(@"SIDEBAR-GROUP-FORMULAE") identifier:@"group"];
 	[_rootSidebarCategory addChildItem:parent];
 
 	for (NSUInteger i=0; i<4; i++) {
@@ -243,15 +246,15 @@
 		[parent addChildItem:item];
 	}
 
-	parent = [PXSourceListItem itemWithTitle:@"Tools" identifier:@"group"];
+	parent = [PXSourceListItem itemWithTitle:NSQLocalizedString(@"SIDEBAR-GROUP-TOOLS") identifier:@"group"];
 	[_rootSidebarCategory addChildItem:parent];
 
-	item = [PXSourceListItem itemWithTitle:@"Doctor" identifier:@"item"];
+	item = [PXSourceListItem itemWithTitle:NSQLocalizedString(@"TOOL-DOCTOR") identifier:@"item"];
 	[item setBadgeValue:@-1];
 	[item setIcon:[NSImage imageNamed:@"wrenchTemplate"]];
 	[parent addChildItem:item];
 
-	item = [PXSourceListItem itemWithTitle:@"Update" identifier:@"item"];
+	item = [PXSourceListItem itemWithTitle:NSQLocalizedString(@"TOOL-UPDATE") identifier:@"item"];
 	[item setBadgeValue:@-1];
 	[item setIcon:[NSImage imageNamed:@"downloadTemplate"]];
 	[parent addChildItem:item];
@@ -637,7 +640,7 @@
 		}
 
 		if (message) {
-			NSAlert *alert = [NSAlert alertWithMessageText:@"Attention!" defaultButton:@"Yes" alternateButton:@"Cancel" otherButton:nil informativeTextWithFormat:message, formula.name];
+			NSAlert *alert = [NSAlert alertWithMessageText:@"Attention!" defaultButton:@"Yes" alternateButton:NSQLocalizedString(@"GENERIC-CANCEL") otherButton:nil informativeTextWithFormat:message, formula.name];
 			[alert.window setTitle:@"Cakebrew"];
 
             NSInteger returnValue = [alert runModal];
@@ -654,7 +657,7 @@
 }
 
 - (IBAction)upgradeAllOutdatedFormulae:(id)sender {
-	NSAlert *alert = [NSAlert alertWithMessageText:@"Attention!" defaultButton:@"Yes" alternateButton:@"Cancel" otherButton:nil informativeTextWithFormat:@"Are you sure you want to upgrade all outdated formulae?"];
+	NSAlert *alert = [NSAlert alertWithMessageText:@"Attention!" defaultButton:@"Yes" alternateButton:NSQLocalizedString(@"GENERIC-CANCEL") otherButton:nil informativeTextWithFormat:@"Are you sure you want to upgrade all outdated formulae?"];
 	[alert.window setTitle:@"Cakebrew"];
 	if ([alert runModal] == NSAlertDefaultReturn) {
 		[self prepareFormula:nil forOperation:kBPWindowOperationUpgrade];

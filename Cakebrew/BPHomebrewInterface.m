@@ -223,7 +223,7 @@
 	{
 		static NSAlert *alert = nil;
 		if (!alert)
-			alert = [NSAlert alertWithMessageText:@"No Valid shell was found!" defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@"Please add your shell \"%@\" to the valid shells file at \"/etc/shells\" before trying again.", userShell];
+			alert = [NSAlert alertWithMessageText:NSQLocalizedString(@"WARNING-VALID-SHELL-TITLE") defaultButton:NSQLocalizedString(@"GENERIC-OK") alternateButton:nil otherButton:nil informativeTextWithFormat:NSQLocalizedString(@"WARNING-VALID-SHELL-MESSAGE"), userShell];
 		[alert performSelectorOnMainThread:@selector(runModal) withObject:nil waitUntilDone:YES];
 
 		NSLog(@"No valid shell found...");
