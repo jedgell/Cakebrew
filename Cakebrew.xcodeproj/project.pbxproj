@@ -126,6 +126,12 @@
 		15F0EA2C191B28A000BA8875 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		15F0EA2F191B28B200BA8875 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/BPInstallationViewController.xib; sourceTree = "<group>"; };
 		15F0EA32191B28B600BA8875 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/BPPreferencesWindow.xib; sourceTree = "<group>"; };
+		15F0EA3A191B352500BA8875 /* pt */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = pt; path = pt.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		15F0EA3B191B352500BA8875 /* pt */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = pt; path = pt.lproj/BPInstallationViewController.xib; sourceTree = "<group>"; };
+		15F0EA3C191B352500BA8875 /* pt */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = pt; path = pt.lproj/BPPreferencesWindow.xib; sourceTree = "<group>"; };
+		15F0EA3D191B352500BA8875 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		15F0EA3E191B352500BA8875 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = pt; path = pt.lproj/Credits.rtf; sourceTree = "<group>"; };
+		15F0EA3F191B352500BA8875 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1FE4FE54148E4CDD008EDE8B /* Cakebrew.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cakebrew.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FE4FE58148E4CDD008EDE8B /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		1FE4FE5B148E4CDD008EDE8B /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -383,6 +389,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				pt,
 			);
 			mainGroup = 1FE4FE49148E4CDD008EDE8B;
 			productRefGroup = 1FE4FE55148E4CDD008EDE8B /* Products */;
@@ -481,6 +488,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				15F0EA2C191B28A000BA8875 /* en */,
+				15F0EA3F191B352500BA8875 /* pt */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -489,6 +497,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				15F0EA2F191B28B200BA8875 /* en */,
+				15F0EA3B191B352500BA8875 /* pt */,
 			);
 			name = BPInstallationViewController.xib;
 			sourceTree = "<group>";
@@ -497,6 +506,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				15F0EA32191B28B600BA8875 /* en */,
+				15F0EA3C191B352500BA8875 /* pt */,
 			);
 			name = BPPreferencesWindow.xib;
 			sourceTree = "<group>";
@@ -505,6 +515,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				1FE4FE62148E4CDD008EDE8B /* en */,
+				15F0EA3D191B352500BA8875 /* pt */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -513,6 +524,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				1FE4FE68148E4CDD008EDE8B /* en */,
+				15F0EA3E191B352500BA8875 /* pt */,
 			);
 			name = Credits.rtf;
 			sourceTree = "<group>";
@@ -521,6 +533,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				1FE4FE6E148E4CDD008EDE8B /* en */,
+				15F0EA3A191B352500BA8875 /* pt */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";

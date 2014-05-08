@@ -1,0 +1,59 @@
+ //
+ // Localizable.strings
+ // Cakebrew
+ //
+ // Created by Bruno Philipe on 5/7/14.
+ //	Copyright (c) 2014 Bruno Philipe. All rights reserved.
+ //
+ //	This program is free software: you can redistribute it and/or modify
+ //	it under the terms of the GNU General Public License as published by
+ //	the Free Software Foundation, either version 3 of the License, or
+ //	(at your option) any later version.
+ //
+ //	This program is distributed in the hope that it will be useful,
+ //	but WITHOUT ANY WARRANTY; without even the implied warranty of
+ //	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ //	GNU General Public License for more details.
+ //
+ //	You should have received a copy of the GNU General Public License
+ //	along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ //
+
+"GENERIC-OK" = "OK";
+"GENERIC-ERROR" = "Erro!";
+"GENERIC-CANCEL" = "Cancelar";
+
+"FORMULA-TASK-INSTALLING" = "Instalando Fórmula:";
+"FORMULA-TASK-UPDATING" = "Atualizando Fórmula:";
+"FORMULA-TASK-UNINSTALLING" = "Removendo Fórmula:";
+"FORMULA-TASK-UPDATING-ALL" = "Todas as Fórmulas";
+
+"FORMULA-DEPRECATED" = "Fórmula Descontinuada.";
+"FORMULA-NOT-INSTALLED" = "Fórmula não Instalada";
+"FORMULA-NO-DEPENDENCIES" = "Fórmula sem Dependências";
+"FORMULA-NO-CONFLICTS" = "Fórmula sem Conflitos";
+
+"FORMULA-INSTALL" = "Instalar Fórmula";
+"FORMULA-UNINSTALL" = "Remover Fórmula";
+"FORMULA-UPDATE" = "Atualizar Fórmula";
+
+"FORMULA-CATEGORY-INSTALLED" = "Instaladas";
+"FORMULA-CATEGORY-OUTDATED" = "Desatualizadas";
+"FORMULA-CATEGORY-ALL" = "Todas";
+"FORMULA-CATEGORY-LEAVES" = "Folhas";
+
+"SIDEBAR-GROUP-FORMULAE" = "Fórmulas";
+"SIDEBAR-GROUP-TOOLS" = "Ferramentas";
+
+"TOOL-DOCTOR" = "Doutor";
+"TOOL-UPDATE" = "Sincronizar";
+
+"WARNING-BACKGROUND-TASK-TITLE" = "Tarefa em Plano de Fundo!";
+"WARNING-BACKGROUND-TASK-MESSAGE" = "Desculpe, uma tarefa já está sendo executada no plano de fundo. Você não pode executar mais de uma tarefa ao mesmo tempo.";
+"WARNING-VALID-SHELL-TITLE" = "Nenhum shell Válido";
+"WARNING-VALID-SHELL-MESSGAE" = "Favor adicionar seu shell \\\"%@\\\" na lista de shells permitidos, e então tente novamente.";
+"WARNING-HOMEBREW-NOT-INSTALLED" = "O Homebrew não foi encontrado em seu computador! Favor instalar o Homebrew antes de continuar. Clique no botão abaixo para abrir o website do Homebrew.";
+
+"UI-HOMEBREW-WEBSITE" = "Abrir Website";
+"UI-INFO-FOR-FORMULA" = "Informações sobre fórmula:";
+"UI-INFO-FOR-FORMULA-ERROR" = "Erro ao recuperar informações sobre a fórmula.";
