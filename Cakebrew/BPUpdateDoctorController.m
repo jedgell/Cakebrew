@@ -23,29 +23,17 @@
 
 - (void)setTextView_doctor:(NSTextView *)textView
 {
+	NSFont *font = [BPAppDelegateRef defaultFixedWidthFont];
+
 	_textView_doctor = textView;
-
-	NSFont *font;
-	font = [NSFont fontWithName:@"Andale Mono" size:12];
-	if (!font)
-		font = [NSFont fontWithName:@"Menlo" size:12];
-	if (!font)
-		font = [NSFont systemFontOfSize:12];
-
 	[_textView_doctor setFont:font];
 }
 
 - (void)setTextView_update:(NSTextView *)textView
 {
+	NSFont *font = [BPAppDelegateRef defaultFixedWidthFont];
+
 	_textView_update = textView;
-
-	NSFont *font;
-	font = [NSFont fontWithName:@"Andale Mono" size:12];
-	if (!font)
-		font = [NSFont fontWithName:@"Menlo" size:12];
-	if (!font)
-		font = [NSFont systemFontOfSize:12];
-
 	[_textView_update setFont:font];
 }
 

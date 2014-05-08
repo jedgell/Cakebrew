@@ -29,15 +29,9 @@
 
 - (void)setTextView:(NSTextView *)textView
 {
+	NSFont *font = [BPAppDelegateRef defaultFixedWidthFont];
+	
 	_textView = textView;
-
-	NSFont *font;
-	font = [NSFont fontWithName:@"Andale Mono" size:12];
-	if (!font)
-		font = [NSFont fontWithName:@"Menlo" size:12];
-	if (!font)
-		font = [NSFont systemFontOfSize:12];
-
 	[_textView setFont:font];
 	[_textView setSelectable:YES];
 }
@@ -56,7 +50,7 @@
 - (void)setFormulae:(NSArray *)formulae
 {
 	_formulae = formulae;
-	[self.label_formulaName setStringValue:@"All outdated formulae"];
+	[self.label_formulaName setStringValue:NSQLocalizedString(@"FORMULA-TASK-UPDATING-ALL")];
 }
 
 - (void)setWindowOperation:(BPWindowOperation)windowOperation
@@ -65,15 +59,15 @@
 	NSString *message;
 	switch (windowOperation) {
 		case kBPWindowOperationInstall:
-			message = @"Installing Formula:";
+			message = NSQLocalizedString(@"FORMULA-TASK-INSTALLING");
 			break;
 
 		case kBPWindowOperationUninstall:
-			message = @"Uninstalling Formula:";
+			message = NSQLocalizedString(@"FORMULA-TASK-UNINSTALLING");
 			break;
 
 		case kBPWindowOperationUpgrade:
-			message = @"Upgrading Formula:";
+			message = NSQLocalizedString(@"FORMULA-TASK-UPDATING");
 			break;
 	}
 	[self.label_windowTitle setStringValue:message];

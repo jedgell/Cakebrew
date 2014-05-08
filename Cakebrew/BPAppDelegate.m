@@ -127,6 +127,18 @@
 	[alert runModal];
 }
 
+- (NSFont*)defaultFixedWidthFont
+{
+	NSFont *font;
+	font = [NSFont fontWithName:@"Andale Mono" size:12];
+	if (!font)
+		font = [NSFont fontWithName:@"Menlo" size:12];
+	if (!font)
+		font = [NSFont systemFontOfSize:12];
+
+	return font;
+}
+
 - (IBAction)showAboutWindow:(id)sender
 {
 	[self.aboutWindowController showWindow:nil];

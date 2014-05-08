@@ -35,4 +35,6 @@
 
 - (void)displayBackgroundWarning;
 
+- (NSFont*)defaultFixedWidthFont;
+
 @end
