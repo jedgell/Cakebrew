@@ -45,9 +45,9 @@
 		NSString *string = [[BPHomebrewInterface sharedInterface] informationForFormula:[dataObject performSelector:@selector(name)]];
 		if (string) {
 			[_textView setString:string];
-			[_label_title setStringValue:[NSString stringWithFormat:@"Information for Formula: %@", [dataObject performSelector:@selector(name)]]];
+			[_label_title setStringValue:[NSString stringWithFormat:NSQLocalizedString(@"UI-INFO-FOR-FORMULA"), [dataObject performSelector:@selector(name)]]];
 		} else {
-			[_textView setString:@"Error retrieving Formula information"];
+			[_textView setString:NSQLocalizedString(@"UI-INFO-FOR-FORMULA-ERROR")];
 		}
 	}
 }

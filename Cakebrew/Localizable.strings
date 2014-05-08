@@ -10,6 +10,11 @@
 "GENERIC-ERROR" = "Error!";
 "GENERIC-CANCEL" = "Cancel";
 
+"FORMULA-TASK-INSTALLING" = "Installing Formula:";
+"FORMULA-TASK-UPDATING" = "Upgrading Formula:";
+"FORMULA-TASK-UNINSTALLING" = "Uninstalling Formula:";
+"FORMULA-TASK-UPDATING-ALL" = "All outdated formulae";
+
 "FORMULA-DEPRECATED" = "Formula no longer available.";
 "FORMULA-NOT-INSTALLED" = "Formula Not Installed.";
 "FORMULA-NO-DEPENDENCIES" = "This formula has no dependencies!";
@@ -37,3 +42,5 @@
 "WARNING-HOMEBREW-NOT-INSTALLED" = "Homebrew was not found in your system. Please install Homebrew before using Cakebrew. You can click the button below to open Homebrew's website.";
 
 "UI-HOMEBREW-WEBSITE" = "Homebrew Website";
+"UI-INFO-FOR-FORMULA" = "Information for Formula: %@";
+"UI-INFO-FOR-FORMULA-ERROR" = "Error retrieving Formula information";
