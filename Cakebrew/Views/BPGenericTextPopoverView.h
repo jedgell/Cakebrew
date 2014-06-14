@@ -21,7 +21,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface BPGenericTextPopoverView : NSView
+@interface BPGenericTextPopoverView : NSVisualEffectView
 
 @property (strong, nonatomic) IBOutlet NSTextView *textView;
 @property (strong, nonatomic) IBOutlet NSTextField *label_title;

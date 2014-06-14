@@ -65,4 +65,9 @@
 	}
 }
 
+- (BOOL)allowsVibrancy
+{
+	return YES;
+}
+
 @end
