@@ -122,7 +122,8 @@ NSString *const kBP_FORMULA_OPTION_DESCRIPTION = @"BP_FORMULA_OPTION_DESCRIPTION
 	if (error) return nil;
 	error = nil;
 
-	path = [path URLByAppendingPathComponent:@"com.brunophilipe.Cakebrew/"];
+	NSString *bundleIdentifier = [[NSBundle mainBundle] bundleIdentifier];
+	path = [path URLByAppendingPathComponent:bundleIdentifier];
 
 	[[NSFileManager defaultManager] createDirectoryAtPath:path.relativePath withIntermediateDirectories:YES attributes:nil error:&error];
 
