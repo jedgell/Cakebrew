@@ -47,7 +47,8 @@
 	
 	_textView = textView;
 	[_textView setFont:font];
-	[_textView setTextColor:[NSColor whiteColor]];
+	if (NSAppKitVersionNumber <= NSAppKitVersionNumber10_9)
+		[_textView setTextColor:[NSColor whiteColor]];
 }
 
 - (void)setDataObject:(id)dataObject

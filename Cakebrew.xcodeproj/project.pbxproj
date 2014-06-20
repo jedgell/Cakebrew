@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		1529086B1927C05B00206767 /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = 1529086A1927C05B00206767 /* .travis.yml */; };
 		1536BFF718EBA92400B67C5C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1536BFF618EBA92400B67C5C /* Images.xcassets */; };
-		1540FA3518ECF66B00334A5C /* download.icns in Resources */ = {isa = PBXBuildFile; fileRef = 1540FA3418ECF66B00334A5C /* download.icns */; };
 		1540FA3918ED09BB00334A5C /* BPInsetShadowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1540FA3818ED09BB00334A5C /* BPInsetShadowView.m */; };
 		1540FA3D18EDDA1600334A5C /* BPTopBorderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1540FA3B18EDD8CE00334A5C /* BPTopBorderView.m */; };
 		15705464191A887E0003E60F /* BPGenericTextPopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15705463191A887E0003E60F /* BPGenericTextPopoverView.m */; };
@@ -26,29 +25,11 @@
 		15B6F14C1950E37100144B01 /* BPFormulaOptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B6F14A1950E37100144B01 /* BPFormulaOptionsViewController.m */; };
 		15B6F14D1950E37100144B01 /* BPFormulaOptionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15B6F14B1950E37100144B01 /* BPFormulaOptionsViewController.xib */; };
 		15C34CBF19512DE100B92E36 /* BPAutoScrollTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C34CBE19512DE100B92E36 /* BPAutoScrollTextView.m */; };
-		15D2CF9318F1D66400B6D9F1 /* allFormulasTemplate.png in Resources */ = {isa = PBXBuildFile; fileRef = 15D2CF8918F1D66400B6D9F1 /* allFormulasTemplate.png */; };
-		15D2CF9418F1D66400B6D9F1 /* allFormulasTemplate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15D2CF8A18F1D66400B6D9F1 /* allFormulasTemplate@2x.png */; };
-		15D2CF9718F1D66400B6D9F1 /* installedTemplate.png in Resources */ = {isa = PBXBuildFile; fileRef = 15D2CF8D18F1D66400B6D9F1 /* installedTemplate.png */; };
-		15D2CF9818F1D66400B6D9F1 /* installedTemplate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15D2CF8E18F1D66400B6D9F1 /* installedTemplate@2x.png */; };
-		15D2CF9918F1D66400B6D9F1 /* outdatedTemplate.png in Resources */ = {isa = PBXBuildFile; fileRef = 15D2CF8F18F1D66400B6D9F1 /* outdatedTemplate.png */; };
-		15D2CF9A18F1D66400B6D9F1 /* outdatedTemplate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15D2CF9018F1D66400B6D9F1 /* outdatedTemplate@2x.png */; };
-		15D2CF9B18F1D66400B6D9F1 /* pinTemplate.png in Resources */ = {isa = PBXBuildFile; fileRef = 15D2CF9118F1D66400B6D9F1 /* pinTemplate.png */; };
-		15D2CF9C18F1D66400B6D9F1 /* pinTemplate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15D2CF9218F1D66400B6D9F1 /* pinTemplate@2x.png */; };
-		15D2CF9F18F1D6F700B6D9F1 /* wrenchTemplate.png in Resources */ = {isa = PBXBuildFile; fileRef = 15D2CF9D18F1D6F700B6D9F1 /* wrenchTemplate.png */; };
-		15D2CFA018F1D6F700B6D9F1 /* wrenchTemplate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15D2CF9E18F1D6F700B6D9F1 /* wrenchTemplate@2x.png */; };
-		15D2CFA218F1E71800B6D9F1 /* reload.icns in Resources */ = {isa = PBXBuildFile; fileRef = 15D2CFA118F1E71800B6D9F1 /* reload.icns */; };
-		15D2CFA418F1EAD200B6D9F1 /* globe.icns in Resources */ = {isa = PBXBuildFile; fileRef = 15D2CFA318F1EAD200B6D9F1 /* globe.icns */; };
 		15D2CFAA18F202B300B6D9F1 /* DCOAboutWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15D2CFA718F202B300B6D9F1 /* DCOAboutWindow.xib */; };
 		15D2CFAB18F202B300B6D9F1 /* DCOAboutWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15D2CFA918F202B300B6D9F1 /* DCOAboutWindowController.m */; };
 		15D2CFAD18F202D000B6D9F1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15D2CFAC18F202D000B6D9F1 /* QuartzCore.framework */; };
-		15D2CFB518F2065200B6D9F1 /* downloadTemplate.png in Resources */ = {isa = PBXBuildFile; fileRef = 15D2CFB318F2065200B6D9F1 /* downloadTemplate.png */; };
-		15D2CFB618F2065200B6D9F1 /* downloadTemplate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15D2CFB418F2065200B6D9F1 /* downloadTemplate@2x.png */; };
 		15D2CFB818F206DF00B6D9F1 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 15D2CFB718F206DF00B6D9F1 /* README.md */; };
 		15D2CFBA18F20A8200B6D9F1 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 15D2CFB918F20A8200B6D9F1 /* LICENSE */; };
-		15D5BEF118EBB3FB001DDED7 /* delete.icns in Resources */ = {isa = PBXBuildFile; fileRef = 15D5BEEE18EBB3FB001DDED7 /* delete.icns */; };
-		15D5BEF218EBB3FB001DDED7 /* label.icns in Resources */ = {isa = PBXBuildFile; fileRef = 15D5BEEF18EBB3FB001DDED7 /* label.icns */; };
-		15D5BEF318EBB3FB001DDED7 /* plus.icns in Resources */ = {isa = PBXBuildFile; fileRef = 15D5BEF018EBB3FB001DDED7 /* plus.icns */; };
-		15D5BEF518EBB430001DDED7 /* search.icns in Resources */ = {isa = PBXBuildFile; fileRef = 15D5BEF418EBB430001DDED7 /* search.icns */; };
 		15D5BEFA18EBC56E001DDED7 /* DMSplitView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15D5BEF918EBC56E001DDED7 /* DMSplitView.m */; };
 		1FE4FE59148E4CDD008EDE8B /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FE4FE58148E4CDD008EDE8B /* Cocoa.framework */; };
 		1FE4FE63148E4CDD008EDE8B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1FE4FE61148E4CDD008EDE8B /* InfoPlist.strings */; };
@@ -80,7 +61,6 @@
 /* Begin PBXFileReference section */
 		1529086A1927C05B00206767 /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = SOURCE_ROOT; };
 		1536BFF618EBA92400B67C5C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		1540FA3418ECF66B00334A5C /* download.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = download.icns; sourceTree = "<group>"; };
 		1540FA3718ED09BB00334A5C /* BPInsetShadowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BPInsetShadowView.h; path = Views/BPInsetShadowView.h; sourceTree = "<group>"; };
 		1540FA3818ED09BB00334A5C /* BPInsetShadowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BPInsetShadowView.m; path = Views/BPInsetShadowView.m; sourceTree = "<group>"; };
 		1540FA3A18EDD8CE00334A5C /* BPTopBorderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BPTopBorderView.h; path = Views/BPTopBorderView.h; sourceTree = "<group>"; };
@@ -104,30 +84,12 @@
 		15B6F14B1950E37100144B01 /* BPFormulaOptionsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BPFormulaOptionsViewController.xib; path = Views/BPFormulaOptionsViewController.xib; sourceTree = "<group>"; };
 		15C34CBD19512DE100B92E36 /* BPAutoScrollTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BPAutoScrollTextView.h; path = Views/BPAutoScrollTextView.h; sourceTree = "<group>"; };
 		15C34CBE19512DE100B92E36 /* BPAutoScrollTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BPAutoScrollTextView.m; path = Views/BPAutoScrollTextView.m; sourceTree = "<group>"; };
-		15D2CF8918F1D66400B6D9F1 /* allFormulasTemplate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = allFormulasTemplate.png; sourceTree = "<group>"; };
-		15D2CF8A18F1D66400B6D9F1 /* allFormulasTemplate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "allFormulasTemplate@2x.png"; sourceTree = "<group>"; };
-		15D2CF8D18F1D66400B6D9F1 /* installedTemplate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = installedTemplate.png; sourceTree = "<group>"; };
-		15D2CF8E18F1D66400B6D9F1 /* installedTemplate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "installedTemplate@2x.png"; sourceTree = "<group>"; };
-		15D2CF8F18F1D66400B6D9F1 /* outdatedTemplate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = outdatedTemplate.png; sourceTree = "<group>"; };
-		15D2CF9018F1D66400B6D9F1 /* outdatedTemplate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "outdatedTemplate@2x.png"; sourceTree = "<group>"; };
-		15D2CF9118F1D66400B6D9F1 /* pinTemplate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pinTemplate.png; sourceTree = "<group>"; };
-		15D2CF9218F1D66400B6D9F1 /* pinTemplate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pinTemplate@2x.png"; sourceTree = "<group>"; };
-		15D2CF9D18F1D6F700B6D9F1 /* wrenchTemplate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wrenchTemplate.png; sourceTree = "<group>"; };
-		15D2CF9E18F1D6F700B6D9F1 /* wrenchTemplate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wrenchTemplate@2x.png"; sourceTree = "<group>"; };
-		15D2CFA118F1E71800B6D9F1 /* reload.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = reload.icns; sourceTree = "<group>"; };
-		15D2CFA318F1EAD200B6D9F1 /* globe.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = globe.icns; sourceTree = "<group>"; };
 		15D2CFA718F202B300B6D9F1 /* DCOAboutWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DCOAboutWindow.xib; sourceTree = "<group>"; };
 		15D2CFA818F202B300B6D9F1 /* DCOAboutWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCOAboutWindowController.h; sourceTree = "<group>"; };
 		15D2CFA918F202B300B6D9F1 /* DCOAboutWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCOAboutWindowController.m; sourceTree = "<group>"; };
 		15D2CFAC18F202D000B6D9F1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		15D2CFB318F2065200B6D9F1 /* downloadTemplate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = downloadTemplate.png; sourceTree = "<group>"; };
-		15D2CFB418F2065200B6D9F1 /* downloadTemplate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "downloadTemplate@2x.png"; sourceTree = "<group>"; };
 		15D2CFB718F206DF00B6D9F1 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = SOURCE_ROOT; };
 		15D2CFB918F20A8200B6D9F1 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = SOURCE_ROOT; };
-		15D5BEEE18EBB3FB001DDED7 /* delete.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = delete.icns; sourceTree = "<group>"; };
-		15D5BEEF18EBB3FB001DDED7 /* label.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = label.icns; sourceTree = "<group>"; };
-		15D5BEF018EBB3FB001DDED7 /* plus.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = plus.icns; sourceTree = "<group>"; };
-		15D5BEF418EBB430001DDED7 /* search.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = search.icns; sourceTree = "<group>"; };
 		15D5BEF818EBC56E001DDED7 /* DMSplitView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMSplitView.h; sourceTree = "<group>"; };
 		15D5BEF918EBC56E001DDED7 /* DMSplitView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMSplitView.m; sourceTree = "<group>"; };
 		1FE4FE54148E4CDD008EDE8B /* Cakebrew Beta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cakebrew Beta.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -184,25 +146,6 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
-		15D2CF8818F1D66400B6D9F1 /* Icon Templates */ = {
-			isa = PBXGroup;
-			children = (
-				15D2CFB318F2065200B6D9F1 /* downloadTemplate.png */,
-				15D2CFB418F2065200B6D9F1 /* downloadTemplate@2x.png */,
-				15D2CF8918F1D66400B6D9F1 /* allFormulasTemplate.png */,
-				15D2CF8A18F1D66400B6D9F1 /* allFormulasTemplate@2x.png */,
-				15D2CF8D18F1D66400B6D9F1 /* installedTemplate.png */,
-				15D2CF8E18F1D66400B6D9F1 /* installedTemplate@2x.png */,
-				15D2CF8F18F1D66400B6D9F1 /* outdatedTemplate.png */,
-				15D2CF9018F1D66400B6D9F1 /* outdatedTemplate@2x.png */,
-				15D2CF9118F1D66400B6D9F1 /* pinTemplate.png */,
-				15D2CF9218F1D66400B6D9F1 /* pinTemplate@2x.png */,
-				15D2CF9D18F1D6F700B6D9F1 /* wrenchTemplate.png */,
-				15D2CF9E18F1D6F700B6D9F1 /* wrenchTemplate@2x.png */,
-			);
-			path = "Icon Templates";
-			sourceTree = "<group>";
-		};
 		15D2CFA618F202B300B6D9F1 /* DCOAboutWindow */ = {
 			isa = PBXGroup;
 			children = (
@@ -211,21 +154,6 @@
 				15D2CFA918F202B300B6D9F1 /* DCOAboutWindowController.m */,
 			);
 			path = DCOAboutWindow;
-			sourceTree = "<group>";
-		};
-		15D5BEED18EBB3D9001DDED7 /* Icons */ = {
-			isa = PBXGroup;
-			children = (
-				15D2CF8818F1D66400B6D9F1 /* Icon Templates */,
-				15D5BEEE18EBB3FB001DDED7 /* delete.icns */,
-				15D5BEEF18EBB3FB001DDED7 /* label.icns */,
-				15D5BEF018EBB3FB001DDED7 /* plus.icns */,
-				15D2CFA318F1EAD200B6D9F1 /* globe.icns */,
-				1540FA3418ECF66B00334A5C /* download.icns */,
-				15D5BEF418EBB430001DDED7 /* search.icns */,
-				15D2CFA118F1E71800B6D9F1 /* reload.icns */,
-			);
-			path = Icons;
 			sourceTree = "<group>";
 		};
 		15D5BEF618EBC56E001DDED7 /* Libraries */ = {
@@ -320,7 +248,6 @@
 				D2F732EE19190B75002B2512 /* Categories */,
 				1540FA3618ED099F00334A5C /* Views */,
 				15D5BEFB18EBD006001DDED7 /* Models */,
-				15D5BEED18EBB3D9001DDED7 /* Icons */,
 				1FE4FE5F148E4CDD008EDE8B /* Supporting Files */,
 				15D5BEF618EBC56E001DDED7 /* Libraries */,
 				1536BFF618EBA92400B67C5C /* Images.xcassets */,
@@ -408,36 +335,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				1529086B1927C05B00206767 /* .travis.yml in Resources */,
-				15D5BEF318EBB3FB001DDED7 /* plus.icns in Resources */,
 				15B6F14D1950E37100144B01 /* BPFormulaOptionsViewController.xib in Resources */,
 				D2F732EC19190B6D002B2512 /* BPPreferencesWindow.xib in Resources */,
 				1FE4FE63148E4CDD008EDE8B /* InfoPlist.strings in Resources */,
 				1FE4FE69148E4CDD008EDE8B /* Credits.rtf in Resources */,
 				15D2CFAA18F202B300B6D9F1 /* DCOAboutWindow.xib in Resources */,
-				15D2CF9A18F1D66400B6D9F1 /* outdatedTemplate@2x.png in Resources */,
-				15D2CF9718F1D66400B6D9F1 /* installedTemplate.png in Resources */,
-				15D2CFB618F2065200B6D9F1 /* downloadTemplate@2x.png in Resources */,
-				15D2CFB518F2065200B6D9F1 /* downloadTemplate.png in Resources */,
 				1FE4FE6F148E4CDD008EDE8B /* MainMenu.xib in Resources */,
-				15D2CF9C18F1D66400B6D9F1 /* pinTemplate@2x.png in Resources */,
-				15D5BEF518EBB430001DDED7 /* search.icns in Resources */,
-				15D2CFA218F1E71800B6D9F1 /* reload.icns in Resources */,
-				15D2CFA018F1D6F700B6D9F1 /* wrenchTemplate@2x.png in Resources */,
-				15D2CF9418F1D66400B6D9F1 /* allFormulasTemplate@2x.png in Resources */,
 				157270E018F34CF900CA8C9C /* BPInstallationViewController.xib in Resources */,
-				1540FA3518ECF66B00334A5C /* download.icns in Resources */,
-				15D5BEF118EBB3FB001DDED7 /* delete.icns in Resources */,
-				15D2CF9F18F1D6F700B6D9F1 /* wrenchTemplate.png in Resources */,
 				1536BFF718EBA92400B67C5C /* Images.xcassets in Resources */,
-				15D2CFA418F1EAD200B6D9F1 /* globe.icns in Resources */,
 				15D2CFB818F206DF00B6D9F1 /* README.md in Resources */,
-				15D2CF9818F1D66400B6D9F1 /* installedTemplate@2x.png in Resources */,
 				15B23A2C18F5003600714212 /* dsa_pub.pem in Resources */,
 				15D2CFBA18F20A8200B6D9F1 /* LICENSE in Resources */,
-				15D2CF9918F1D66400B6D9F1 /* outdatedTemplate.png in Resources */,
-				15D2CF9318F1D66400B6D9F1 /* allFormulasTemplate.png in Resources */,
-				15D5BEF218EBB3FB001DDED7 /* label.icns in Resources */,
-				15D2CF9B18F1D66400B6D9F1 /* pinTemplate.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

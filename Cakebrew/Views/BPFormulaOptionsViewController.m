@@ -68,7 +68,6 @@
 - (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex
 {
 	if ([[aTableColumn identifier] isEqualToString:@"enabled"]) {
-		NSLog(@"%s", __PRETTY_FUNCTION__);
 		return [_useOptions objectAtIndex:rowIndex];
 	} else {
 		return [[_options objectAtIndex:rowIndex] objectForKey:kBP_FORMULA_OPTION_COMMAND];

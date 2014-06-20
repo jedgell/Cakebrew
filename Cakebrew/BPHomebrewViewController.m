@@ -232,25 +232,25 @@
 
 		switch ([[BPHomebrewManager sharedManager] statusForFormula:formula]) {
 			case kBPFormulaInstalled:
-				[self.toolbarButton_installUninstall setImage:[NSImage imageNamed:@"delete.icns"]];
+				[self.toolbarButton_installUninstall setImage:[NSImage imageNamed:@"deleteTemplate"]];
 				[self.toolbarButton_installUninstall setLabel:@"Uninstall Formula"];
 				[self setToolbarButtonOperation:kBPWindowOperationUninstall];
 				break;
 
 			case kBPFormulaOutdated:
 				if ([self.outlineView_sidebar selectedRow] == 2) {
-					[self.toolbarButton_installUninstall setImage:[NSImage imageNamed:@"reload.icns"]];
+					[self.toolbarButton_installUninstall setImage:[NSImage imageNamed:@"reloadTemplate"]];
 					[self.toolbarButton_installUninstall setLabel:@"Update Formula"];
 					[self setToolbarButtonOperation:kBPWindowOperationUpgrade];
 				} else {
-					[self.toolbarButton_installUninstall setImage:[NSImage imageNamed:@"delete.icns"]];
+					[self.toolbarButton_installUninstall setImage:[NSImage imageNamed:@"deleteTemplate"]];
 					[self.toolbarButton_installUninstall setLabel:@"Uninstall Formula"];
 					[self setToolbarButtonOperation:kBPWindowOperationUninstall];
 				}
 				break;
 
 			case kBPFormulaNotInstalled:
-				[self.toolbarButton_installUninstall setImage:[NSImage imageNamed:@"download.icns"]];
+				[self.toolbarButton_installUninstall setImage:[NSImage imageNamed:@"downloadTemplate"]];
 				[self.toolbarButton_installUninstall setLabel:@"Install Formula"];
 				[self setToolbarButtonOperation:kBPWindowOperationInstall];
 				break;
@@ -302,7 +302,7 @@
 
 	item = [PXSourceListItem itemWithTitle:@"Update" identifier:@"item"];
 	[item setBadgeValue:@-1];
-	[item setIcon:[NSImage imageNamed:@"downloadTemplate"]];
+	[item setIcon:[NSImage imageNamed:@"smallDownloadTemplate"]];
 	[parent addChildItem:item];
 
 	[self displayInformationForFormula:nil];
@@ -646,7 +646,8 @@
 		if (!self.formulaPopover) {
 			self.formulaPopover = [[NSPopover alloc] init];
 			[self.formulaPopover setBehavior:NSPopoverBehaviorSemitransient];
-			[self.formulaPopover setAppearance:NSPopoverAppearanceHUD];
+			if (NSAppKitVersionNumber <= NSAppKitVersionNumber10_9)
+				[self.formulaPopover setAppearance:NSPopoverAppearanceHUD];
 		}
 
 		NSViewController *controller = [[NSViewController alloc] init];
