@@ -26,6 +26,9 @@
 #import "BPInstallationViewController.h"
 #import "BPFormulaOptionsViewController.h"
 #import "Frameworks/PXSourceList.framework/Headers/PXSourceList.h"
+#import <Carbon/Carbon.h>
+
+#define BPOptionKeyUnsetterEvent() ([NSEvent keyEventWithType:NSFlagsChanged location:NSZeroPoint modifierFlags:0x100 timestamp:0 windowNumber:[[NSApp mainWindow] windowNumber] context:nil characters:@"" charactersIgnoringModifiers:@"" isARepeat:NO keyCode:kVK_Option])
 
 @interface BPHomebrewViewController () <NSTableViewDataSource, NSTableViewDelegate, PXSourceListDataSource, PXSourceListDelegate, BPHomebrewManagerDelegate, NSMenuDelegate>
 
@@ -167,6 +170,8 @@
     _operationViewController = nil;
 	_formulaOptionsWindow = nil;
 	_formulaOptionsViewController = nil;
+
+	[self flagsChanged:BPOptionKeyUnsetterEvent()];
 }
 
 - (void)lockWindow
@@ -273,7 +278,7 @@
 - (void)buildSidebarTree
 {
 	NSArray *categoriesTitles = @[@"Installed", @"Outdated", @"All Formulae", @"Leaves"];
-	NSArray *categoriesIcons = @[@"installedTemplate", @"outdatedTemplate", @"allFormulaeTemplate", @"pinTemplate"];
+	NSArray *categoriesIcons = @[@"installedTemplate", @"outdatedTemplate", @"allFormulasTemplate", @"leafTemplate"];
 	NSArray *categoriesValues = @[[NSNumber numberWithInteger:[[[BPHomebrewManager sharedManager] formulae_installed] count]],
 								  [NSNumber numberWithInteger:[[[BPHomebrewManager sharedManager] formulae_outdated] count]],
 								  [NSNumber numberWithInteger:[[[BPHomebrewManager sharedManager] formulae_all] count]],
@@ -297,12 +302,12 @@
 
 	item = [PXSourceListItem itemWithTitle:@"Doctor" identifier:@"item"];
 	[item setBadgeValue:@-1];
-	[item setIcon:[NSImage imageNamed:@"wrenchTemplate"]];
+	[item setIcon:[NSImage imageNamed:@"doctorTemplate"]];
 	[parent addChildItem:item];
 
 	item = [PXSourceListItem itemWithTitle:@"Update" identifier:@"item"];
 	[item setBadgeValue:@-1];
-	[item setIcon:[NSImage imageNamed:@"smallDownloadTemplate"]];
+	[item setIcon:[NSImage imageNamed:@"updateHomebrewTemplate"]];
 	[parent addChildItem:item];
 
 	[self displayInformationForFormula:nil];
@@ -370,6 +375,25 @@
 	[self.tableView_formulae deselectAll:nil];
 	[self.tableView_formulae reloadData];
 	[self updateInterfaceItems];
+}
+
+- (void)flagsChanged:(NSEvent *)theEvent
+{
+	if (theEvent) [super flagsChanged:theEvent];
+	if ((theEvent.keyCode == kVK_Option || theEvent.keyCode == kVK_RightOption) && (self.toolbarButtonOperation == kBPWindowOperationInstall || self.toolbarButtonOperation == kBPWindowOperationInstallWithOptions)) {
+		if ([theEvent modifierFlags] & NSAlternateKeyMask)
+		{
+			[self setToolbarButtonOperation:kBPWindowOperationInstallWithOptions];
+			[self.toolbarButton_installUninstall setImage:[NSImage imageNamed:@"downloadOptionsTemplate"]];
+			[self.toolbarButton_installUninstall setLabel:@"Install with Options"];
+		}
+		else if ([theEvent modifierFlags] & ~NSAlternateKeyMask)
+		{
+			[self setToolbarButtonOperation:kBPWindowOperationInstall];
+			[self.toolbarButton_installUninstall setImage:[NSImage imageNamed:@"downloadTemplate"]];
+			[self.toolbarButton_installUninstall setLabel:@"Install Formula"];
+		}
+	}
 }
 
 #pragma mark - Homebrew Manager Delegate
@@ -705,6 +729,14 @@
 				};
 			}
 				break;
+
+			case kBPWindowOperationInstallWithOptions:
+			{
+				[_appDelegate setRunningBackgroundTask:NO];
+				[self installFormulaWithOptions:sender];
+				return;
+			}
+				break;
 		}
 
 		if (message) {
@@ -749,6 +781,7 @@
 			[_appDelegate.window beginSheet:_formulaOptionsWindow completionHandler:^(NSModalResponse returnCode) {
 				_formulaOptionsWindow = nil;
 				_formulaOptionsViewController = nil;
+				[self flagsChanged:BPOptionKeyUnsetterEvent()];
 			}];
 		} else {
 			[[NSApplication sharedApplication] beginSheet:_formulaOptionsWindow modalForWindow:_appDelegate.window modalDelegate:self didEndSelector:@selector(windowOperationSheetDidEnd:returnCode:contextInfo:) contextInfo:nil];

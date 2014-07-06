@@ -3,12 +3,12 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "pinTemplate.png"
+      "filename" : "reloadTemplate.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "pinTemplate@2x.png"
+      "filename" : "reloadTemplate@2x.png"
     }
   ],
   "info" : {
