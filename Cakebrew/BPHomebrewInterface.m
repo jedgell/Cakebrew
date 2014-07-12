@@ -309,9 +309,13 @@ static NSString *cakebrewOutputIdentifier = @"+++++Cakebrew+++++";
 	return val;
 }
 
-- (BOOL)installFormula:(NSString*)formula withReturnBlock:(void (^)(NSString*output))block
+- (BOOL)installFormula:(NSString*)formula withOptions:(NSArray*)options andReturnBlock:(void (^)(NSString*output))block
 {
-	BOOL val = [self performBrewCommandWithArguments:@[@"install", formula] dataReturnBlock:block];
+	NSArray *params = @[@"install", formula];
+	if (options) {
+		params = [params arrayByAddingObjectsFromArray:options];
+	}
+	BOOL val = [self performBrewCommandWithArguments:params dataReturnBlock:block];
 	[[NSNotificationCenter defaultCenter] postNotificationName:kBP_NOTIFICATION_FORMULAS_CHANGED object:nil];
 	return val;
 }
@@ -410,17 +414,20 @@ static NSString *cakebrewOutputIdentifier = @"+++++Cakebrew+++++";
 
 - (BPFormula *)parseFormulaItem:(NSString *)item
 {
-	static NSString *regexString = @"(\\S*)\\s\\((\\S*) < (\\S*)\\)";
+	static NSString *regexString = @"(\\S+)\\s\\((.*)\\)";
 
 	BPFormula __block *formula = nil;
 	NSError *error = nil;
 	NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:regexString options:NSRegularExpressionCaseInsensitive error:&error];
 
 	[regex enumerateMatchesInString:item options:0 range:NSMakeRange(0, [item length]) usingBlock:^(NSTextCheckingResult *result, NSMatchingFlags flags, BOOL *stop) {
-		if (result.resultType == NSTextCheckingTypeRegularExpression) {
+		if (result.resultType == NSTextCheckingTypeRegularExpression)
+		{
+			NSRange lastRange = [result rangeAtIndex:[result numberOfRanges]-1];
+			NSArray *versionsTuple = [[[[item substringWithRange:lastRange] componentsSeparatedByString:@","] lastObject] componentsSeparatedByString:@"<"];
 			formula = [BPFormula formulaWithName:[item substringWithRange:[result rangeAtIndex:1]]
-										 version:[item substringWithRange:[result rangeAtIndex:2]]
-								andLatestVersion:[item substringWithRange:[result rangeAtIndex:3]]];
+										 version:[[versionsTuple firstObject] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]
+								andLatestVersion:[[versionsTuple lastObject] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
 		}
 	}];
 

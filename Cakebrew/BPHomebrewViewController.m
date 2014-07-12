@@ -50,13 +50,15 @@
 {
 	NSWindow					   *_operationWindow;
 	NSWindow					   *_formulaOptionsWindow;
-	NSOutlineView __weak		   *_outlineView_sidebar;
 	NSTableView					   *_tableView_formulae;
-	DMSplitView __weak			   *_splitView;
+
 	BPHomebrewManager			   *_homebrewManager;
-	BPInsetShadowView __weak	   *_view_disablerLock;
 	BPInstallationViewController   *_operationViewController;
 	BPFormulaOptionsViewController *_formulaOptionsViewController;
+
+	__weak DMSplitView			   *_splitView;
+	__weak PXSourceList			   *_outlineView_sidebar;
+	__weak BPInsetShadowView	   *_view_disablerLock;
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder
@@ -122,10 +124,10 @@
 
 - (void)prepareFormula:(BPFormula*)formula forOperation:(BPWindowOperation)operation
 {
-    [self prepareFormula:formula forOperation:operation inWindow:_appDelegate.window alsoModal:NO];
+    [self prepareFormula:formula forOperation:operation inWindow:_appDelegate.window alsoModal:NO withOptions:nil];
 }
 
-- (void)prepareFormula:(BPFormula*)formula forOperation:(BPWindowOperation)operation inWindow:(NSWindow*)window alsoModal:(BOOL)alsoModal
+- (void)prepareFormula:(BPFormula*)formula forOperation:(BPWindowOperation)operation inWindow:(NSWindow*)window alsoModal:(BOOL)alsoModal withOptions:(NSArray*)options
 {
 	_operationViewController = [[BPInstallationViewController alloc] initWithNibName:@"BPInstallationViewController" bundle:nil];
 	_operationWindow = [[NSWindow alloc] initWithContentRect:_operationViewController.view.frame styleMask:NSTitledWindowMask|NSResizableWindowMask backing:NSBackingStoreBuffered defer:NO];
@@ -139,6 +141,9 @@
 	} else {
 		[_operationViewController setFormulae:[_formulaeArray copy]];
 	}
+
+	[_operationViewController setOptions:options];
+
 	[_operationViewController setWindowOperation:operation];
 
     if ([window respondsToSelector:@selector(beginSheet:completionHandler:)]) {
@@ -413,7 +418,7 @@
 		[_outlineView_sidebar selectRowIndexes:[NSIndexSet indexSetWithIndex:(NSUInteger)_lastSelectedSidebarIndex] byExtendingSelection:NO];
 }
 
-#pragma mark - Getters and Setters
+#pragma mark - Accessors
 
 - (void)setSplitView:(DMSplitView *)splitView
 {
@@ -441,16 +446,18 @@
 	return _tableView_formulae;
 }
 
-- (void)setOutlineView_sidebar:(NSOutlineView *)outlineView_sidebar
+- (void)setOutlineView_sidebar:(PXSourceList*)outlineView_sidebar
 {
 	_outlineView_sidebar = outlineView_sidebar;
+	[_outlineView_sidebar setDelegate:self];
+	[_outlineView_sidebar setDataSource:self];
 
 	dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.6 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
 		[_outlineView_sidebar selectRowIndexes:[NSIndexSet indexSetWithIndex:1] byExtendingSelection:NO];
 	});
 }
 
-- (NSOutlineView*)outlineView_sidebar
+- (PXSourceList*)outlineView_sidebar
 {
 	return _outlineView_sidebar;
 }

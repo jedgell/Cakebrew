@@ -225,6 +225,14 @@
 	return YES;
 }
 
+- (void)setInstalled:(BOOL)installed
+{}
+
+- (BOOL)isInstalled
+{
+	return [[BPHomebrewManager sharedManager] statusForFormula:self] != kBPFormulaNotInstalled;
+}
+
 - (BOOL)isOutdated
 {
 	return [[BPHomebrewManager sharedManager] statusForFormula:self] == kBPFormulaOutdated;
