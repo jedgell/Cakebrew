@@ -20,27 +20,52 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BPFormulaOption.h"
 
-@interface BPFormula : NSObject <NSCoding>
+extern NSString *const BPFormulaDidUpdateNotification;
 
-@property (strong, readonly) NSString *name;
-@property (strong, readonly) NSString *version;
-@property (strong, readonly) NSString *latestVersion;
-@property (strong, readonly) NSString *installPath;
-@property (strong, readonly) NSString *dependencies;
-@property (strong, readonly) NSString *conflicts;
-@property (strong, readonly) NSURL    *website;
-@property (strong, readonly) NSArray  *options;
+@protocol BPFormulaDataProvider <NSObject>
+@required
+- (NSString *)informationForFormulaName:(NSString *)name;
+@end
 
-@property (getter = isInstalled, readonly)	BOOL installed;
-@property (getter = isDeprecated, readonly)	BOOL deprecated;
+@interface BPFormula : NSObject <NSCoding, NSCopying>
 
-+ (BPFormula*)formulaWithName:(NSString*)name version:(NSString*)version andLatestVersion:(NSString*)latestVersion;
-+ (BPFormula*)formulaWithName:(NSString*)name andVersion:(NSString*)version;
-+ (BPFormula*)formulaWithName:(NSString*)name;
+@property (copy, readonly) NSString *name;
+@property (copy, readonly) NSString *version;
+@property (copy, readonly) NSString *latestVersion;
+@property (copy, readonly) NSString *shortLatestVersion;
+@property (copy, readonly) NSString *information;
+@property (nonatomic, copy, readonly) NSString *installPath;
+@property (nonatomic, copy, readonly) NSString *dependencies;
+@property (nonatomic, copy, readonly) NSString *conflicts;
+@property (nonatomic, copy, readonly) NSString *shortDescription;
+@property (nonatomic, strong, readonly) NSURL    *website;
+@property (nonatomic, strong, readonly) NSArray  *options;
 
-- (BOOL)getInformation;
 
+@property BOOL needsInformation;
+
++ (instancetype)formulaWithName:(NSString*)name version:(NSString*)version andLatestVersion:(NSString*)latestVersion;
++ (instancetype)formulaWithName:(NSString*)name andVersion:(NSString*)version;
++ (instancetype)formulaWithName:(NSString*)name;
+
+/**
+ *  The short name for the formula. Useful for taps. Returns the remaining substring after the last slash character.
+ *
+ *  @return The last substring after the last slash character.
+ */
+- (NSString*)installedName;
+
+
+/**
+ *  @return `YES` if the formula is installed, or `NO` otherwise.
+ */
+- (BOOL)isInstalled;
+
+/**
+ *  @return `YES` if the formula is installed and outdated, or `NO` otherwise.
+ */
 - (BOOL)isOutdated;
 
 @end

@@ -21,32 +21,14 @@
 
 #import "BPHomebrewManager.h"
 #import "DCOAboutWindowController.h"
-#import "BPPreferencesWindowController.h"
+#import "BPAppDelegate.h"
 
-NSString *const kBP_HOMEBREW_PATH = @"/usr/local/bin/brew";
-NSString *const kBP_HOMEBREW_PATH_KEY = @"BP_CAKEBREW_PATH_KEY";
-NSString *const kBP_HOMEBREW_PROXY_KEY = @"BP_HOMEBREW_PROXY_KEY";
-NSString *const kBP_HOMEBREW_PROXY_ENABLE_KEY = @"BP_HOMEBREW_PROXY_ENABLE_KEY";
 NSString *const kBP_HOMEBREW_WEBSITE = @"https://www.cakebrew.com";
 
-NSString *const kBP_UPGRADE_ALL_FORMULAS = @"";
 
-NSString *const kBP_EXCEPTION_HOMEBREW_NOT_INSTALLED = @"BP_EXCEPTION_HOMEBREW_NOT_INSTALLED";
-
-NSString *const kBP_NOTIFICATION_FORMULAS_CHANGED = @"BP_NOTIFICATION_FORMULAS_CHANGED";
-NSString *const kBP_NOTIFICATION_LOCK_WINDOW = @"BP_NOTIFICATION_LOCK_WINDOW";
-NSString *const kBP_NOTIFICATION_UNLOCK_WINDOW = @"BP_NOTIFICATION_UNLOCK_WINDOW";
-NSString *const kBP_NOTIFICATION_SEARCH_UPDATED = @"BP_NOTIFICATION_SEARCH_UPDATED";
-
-NSString *const kBP_FORMULA_OPTION_COMMAND = @"BP_FORMULA_OPTION_COMMAND";
-NSString *const kBP_FORMULA_OPTION_DESCRIPTION = @"BP_FORMULA_OPTION_DESCRIPTION";
-
-@class DCOAboutWindowController;
-
-@interface BPAppDelegate ()
+@interface BPAppDelegate () <NSUserNotificationCenterDelegate>
 
 @property (nonatomic, strong) DCOAboutWindowController *aboutWindowController;
-@property (nonatomic, strong) BPPreferencesWindowController *preferencesWindowController;
 
 @end
 
@@ -56,19 +38,11 @@ NSString *const kBP_FORMULA_OPTION_DESCRIPTION = @"BP_FORMULA_OPTION_DESCRIPTION
 
 @implementation BPAppDelegate
 
-- (BPPreferencesWindowController *)preferencesWindowController
-{
-	if (!_preferencesWindowController) {
-		_preferencesWindowController = [[BPPreferencesWindowController alloc] init];
-	}
-	return _preferencesWindowController;
-}
-
 - (DCOAboutWindowController *)aboutWindowController
 {
 	if (!_aboutWindowController){
 		_aboutWindowController = [[DCOAboutWindowController alloc] init];
-		[_aboutWindowController setAppWebsiteURL:kBP_CAKEBREW_URL];
+		[_aboutWindowController setAppWebsiteURL:[NSURL URLWithString:kBP_HOMEBREW_WEBSITE]];
 	}
 	return _aboutWindowController;
 }
@@ -76,16 +50,22 @@ NSString *const kBP_FORMULA_OPTION_DESCRIPTION = @"BP_FORMULA_OPTION_DESCRIPTION
 #pragma mark - NSApplicationDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
-{
+{	
 	[self setupSignalHandler];
-	[[BPHomebrewManager sharedManager] updateRebuildingCache:NO];
+	
+	[[BPHomebrewManager sharedManager] reloadFromInterfaceRebuildingCache:NO];
+	
+	[[NSUserNotificationCenter defaultUserNotificationCenter] setDelegate:self];
 }
 
 - (BOOL)applicationShouldHandleReopen:(NSApplication *)sender hasVisibleWindows:(BOOL)flag
 {
-	if (!flag) {
+	if (!flag)
+	{
 		[self.window makeKeyAndOrderFront:self];
 	}
+	
+	[self cleanupTaskAlerts];
 
 	return YES;
 }
@@ -94,6 +74,16 @@ NSString *const kBP_FORMULA_OPTION_DESCRIPTION = @"BP_FORMULA_OPTION_DESCRIPTION
 {
 	[[BPHomebrewManager sharedManager] cleanUp];
 	return NSTerminateNow;
+}
+
+- (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)sender {
+	return YES;
+}
+
+- (void)cleanupTaskAlerts
+{
+	[[NSUserNotificationCenter defaultUserNotificationCenter] removeAllDeliveredNotifications];
+	[[[NSApplication sharedApplication] dockTile] setBadgeLabel:nil];
 }
 
 - (NSURL*)urlForApplicationSupportFolder
@@ -119,14 +109,24 @@ NSString *const kBP_FORMULA_OPTION_DESCRIPTION = @"BP_FORMULA_OPTION_DESCRIPTION
 	NSError *error = nil;
 	NSURL *path = [[NSFileManager defaultManager] URLForDirectory:NSCachesDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:YES error:&error];
 
-	if (error) return nil;
+	if (error)
+	{
+		NSLog(@"Error finding caches directory: %@", path);
+		return nil;
+	}
+	
 	error = nil;
 
 	path = [path URLByAppendingPathComponent:@"com.brunophilipe.Cakebrew/"];
 
 	[[NSFileManager defaultManager] createDirectoryAtPath:path.relativePath withIntermediateDirectories:YES attributes:nil error:&error];
 
-	if (error) return nil;
+	if (error)
+	{
+		NSLog(@"Error creating Cakebrew cache directory: %@", path);
+		return nil;
+	}
+	
 	error = nil;
 
 	return path;
@@ -136,38 +136,50 @@ NSString *const kBP_FORMULA_OPTION_DESCRIPTION = @"BP_FORMULA_OPTION_DESCRIPTION
 {
 	static NSAlert *alert= nil;
 	if (!alert)
-		alert = [NSAlert alertWithMessageText:@"Active background task!" defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@"Sorry, a background task is already running. You can't perform two tasks at the same time."];
+		alert = [NSAlert alertWithMessageText:NSLocalizedString(@"Message_BGTask_Title", nil)
+								defaultButton:NSLocalizedString(@"Generic_OK", nil)
+							  alternateButton:nil
+								  otherButton:nil
+					informativeTextWithFormat:NSLocalizedString(@"Message_BGTask_Body", nil)];
 
 	[alert runModal];
 }
 
-- (NSFont*)defaultFixedWidthFont
+- (void)requestUserAttentionWithMessageTitle:(NSString*)title andDescription:(NSString*)desc
 {
-	static NSFont *font = nil;
-
-	if (!font) {
-		font = [NSFont fontWithName:@"Andale Mono" size:12];
-		if (!font)
-			font = [NSFont fontWithName:@"Menlo" size:12];
-		if (!font)
-			font = [NSFont systemFontOfSize:12];
+	[[NSApplication sharedApplication] requestUserAttention:NSInformationalRequest];
+	
+	if (![[NSApplication sharedApplication] isActive])
+	{
+		[[[NSApplication sharedApplication] dockTile] setBadgeLabel:@"●"];
 	}
-
-	return font;
+	
+	NSUserNotification *userNotification = [NSUserNotification new];
+	[userNotification setTitle:title];
+	[userNotification setSubtitle:desc];
+	
+	[[NSUserNotificationCenter defaultUserNotificationCenter] scheduleNotification:userNotification];
 }
+
+#pragma mark - IBActions
 
 - (IBAction)showAboutWindow:(id)sender
 {
-	[self.aboutWindowController showWindow:nil];
+	[self.aboutWindowController showWindow:sender];
+	[self.aboutWindowController.window becomeFirstResponder];
 }
 
 - (IBAction)openWebsite:(id)sender
 {
-	[[NSWorkspace sharedWorkspace] openURL:kBP_CAKEBREW_URL];
+	[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:kBP_HOMEBREW_WEBSITE]];
 }
 
-- (IBAction)showPreferencesWindow:(id)sender {
-	[self.preferencesWindowController showWindow:nil];
+#pragma mark - User Notification Center Delegate
+
+- (void)userNotificationCenter:(NSUserNotificationCenter *)center
+	   didActivateNotification:(NSUserNotification *)notification
+{
+	[self cleanupTaskAlerts];
 }
 
 @end

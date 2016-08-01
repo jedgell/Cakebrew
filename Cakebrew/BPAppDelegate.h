@@ -1,6 +1,6 @@
 //
 //	AppDelegate.h
-//	Cakebrew – The Homebrew GUI App for OS X 
+//	Cakebrew – The Homebrew GUI App for OS X
 //
 //	Created by Vincent Saluzzo on 06/12/11.
 //	Copyright (c) 2014 Bruno Philipe. All rights reserved.
@@ -21,22 +21,11 @@
 
 #import <Cocoa/Cocoa.h>
 
+#define BPAppDelegateRef ((BPAppDelegate*)[[NSApplication sharedApplication] delegate])
+
 extern NSString *const kBP_HOMEBREW_PATH;
 extern NSString *const kBP_HOMEBREW_PATH_KEY;
-extern NSString *const kBP_HOMEBREW_PROXY_KEY;
-extern NSString *const kBP_HOMEBREW_PROXY_ENABLE_KEY;
 extern NSString *const kBP_HOMEBREW_WEBSITE;
-
-extern NSString *const kBP_UPGRADE_ALL_FORMULAS;
-extern NSString *const kBP_EXCEPTION_HOMEBREW_NOT_INSTALLED;
-
-extern NSString *const kBP_NOTIFICATION_FORMULAS_CHANGED;
-extern NSString *const kBP_NOTIFICATION_LOCK_WINDOW;
-extern NSString *const kBP_NOTIFICATION_UNLOCK_WINDOW;
-extern NSString *const kBP_NOTIFICATION_SEARCH_UPDATED;
-
-extern NSString *const kBP_FORMULA_OPTION_COMMAND;
-extern NSString *const kBP_FORMULA_OPTION_DESCRIPTION;
 
 @interface BPAppDelegate : NSObject <NSApplicationDelegate>
 
@@ -48,10 +37,8 @@ extern NSString *const kBP_FORMULA_OPTION_DESCRIPTION;
 - (NSURL*)urlForApplicationCachesFolder;
 
 - (IBAction)openWebsite:(id)sender;
-- (IBAction)showPreferencesWindow:(id)sender;
 
 - (void)displayBackgroundWarning;
-
-- (NSFont*)defaultFixedWidthFont;
+- (void)requestUserAttentionWithMessageTitle:(NSString*)title andDescription:(NSString*)desc;
 
 @end

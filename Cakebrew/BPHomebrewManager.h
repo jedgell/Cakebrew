@@ -1,6 +1,6 @@
 //
 //	BPHomebrewManager.h
-//	Cakebrew – The Homebrew GUI App for OS X 
+//	Cakebrew – The Homebrew GUI App for OS X
 //
 //	Created by Bruno Philipe on 4/3/14.
 //	Copyright (c) 2014 Bruno Philipe. All rights reserved.
@@ -25,14 +25,16 @@
 @class BPHomebrewManager;
 
 typedef NS_ENUM(NSInteger, BPFormulaStatus) {
-    kBPFormulaNotInstalled,
-    kBPFormulaInstalled,
-    kBPFormulaOutdated,
+	kBPFormulaNotInstalled,
+	kBPFormulaInstalled,
+	kBPFormulaOutdated,
 };
 
 @protocol BPHomebrewManagerDelegate <NSObject>
 
 - (void)homebrewManagerFinishedUpdating:(BPHomebrewManager*)manager;
+- (void)homebrewManager:(BPHomebrewManager *)manager didUpdateSearchResults:(NSArray *)searchResults;
+- (void)homebrewManager:(BPHomebrewManager *)manager shouldDisplayNoBrewMessage:(BOOL)yesOrNo;
 
 @end
 
@@ -43,13 +45,16 @@ typedef NS_ENUM(NSInteger, BPFormulaStatus) {
 @property (strong) NSArray *formulae_all;
 @property (strong) NSArray *formulae_leaves;
 @property (strong) NSArray *formulae_search;
+@property (strong) NSArray *formulae_repositories;
 
-@property (unsafe_unretained) id<BPHomebrewManagerDelegate> delegate;
+@property (weak) id<BPHomebrewManagerDelegate> delegate;
 
-+ (BPHomebrewManager *)sharedManager;
++ (instancetype)sharedManager;
++ (instancetype)alloc __attribute__((unavailable("alloc not available, call sharedManager instead")));
+- (instancetype)init __attribute__((unavailable("init not available, call sharedManager instead")));
++ (instancetype)new __attribute__((unavailable("new not available, call sharedManager instead")));
 
-- (void)update;
-- (void)updateRebuildingCache:(BOOL)shouldRebuildCache;
+- (void)reloadFromInterfaceRebuildingCache:(BOOL)shouldRebuildCache;
 - (void)updateSearchWithName:(NSString *)name;
 
 - (BPFormulaStatus)statusForFormula:(BPFormula*)formula;
